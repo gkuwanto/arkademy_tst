@@ -14,4 +14,5 @@ Untuk menjalankan aplikasi nomor 6, dibutuhkan golang dan mysql.
 Untuk menjalankan aplikasi ini, pertama harus ada mysql yang berjalan di localhost.Setelah ada mysql yang jalan, import sql dari sql dump saya (arkademy.sql). Ubah const DB_USERNAME, DB_PASSWORD, dan DB_DATABASENAME sesuai dengan komputer yang menjalankan.
 Setelah disave, jalankan program dengan go run main.go (di directory 6)
 
-#Screenshoot
+# Screenshoot
+![Screenshot websitenya](https://raw.githubusercontent.com/gkuwanto/arkademy_tst/master/Demo.jpg)
