@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Users</title>
+
+  </head>
+  <body>
+    <div class="form">
+      <form action="/user" method="post">
+        <input type="text" name="name" value="">
+        <input type="submit" name="" value="Add User">
+      </form>
+    </div>
+    {{ range .Users }}
+      <div class="cols">
+        <div class="left">
+          <h2>{{ .Name }}</h2>
+          <ul>
+            <li>WIP</li>
+          </ul>
+        </div>
+        <div class="right">
+          <form action="/skill" method="post">
+            <input type="hidden" name="user" value= {{ .ID }}>
+            <input type="text" name="name" value="">
+            <input type="submit" name="" value="Add Skill">
+          </form>
+        </div>
+      </div>
+    {{ end }}
+  </body>
+</html>
