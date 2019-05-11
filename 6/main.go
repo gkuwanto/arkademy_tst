@@ -22,6 +22,10 @@ type Skill struct {
 	User_id int
 }
 
+const DB_USERNAME = "root"
+const DB_PASSWORD = ""
+const DB_DATABASENAME = "arkademy"
+
 func main() {
 	http.HandleFunc("/", index)
 	http.HandleFunc("/user", addUser)
@@ -31,7 +35,7 @@ func main() {
 
 func addUser(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodPost {
-		db, err := sql.Open("mysql", "root:@tcp(localhost:3306)/arkademy")
+		db, err := sql.Open("mysql", DB_USERNAME+":"+DB_PASSWORD+"@tcp(localhost:3306)/"+DB_DATABASENAME)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -45,7 +49,7 @@ func addSkill(w http.ResponseWriter, r *http.Request) {
 		name := r.FormValue("name")
 		user_id := r.FormValue("user")
 		user, _ := strconv.Atoi(user_id)
-		db, err := sql.Open("mysql", "root:@tcp(localhost:3306)/arkademy")
+		db, err := sql.Open("mysql", DB_USERNAME+":"+DB_PASSWORD+"@tcp(localhost:3306)/"+DB_DATABASENAME)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -57,7 +61,7 @@ func addSkill(w http.ResponseWriter, r *http.Request) {
 func index(w http.ResponseWriter, r *http.Request) {
 	var users []User
 	var user User
-	db, err := sql.Open("mysql", "root:@tcp(localhost:3306)/arkademy")
+	db, err := sql.Open("mysql", DB_USERNAME+":"+DB_PASSWORD+"@tcp(localhost:3306)/"+DB_DATABASENAME)
 	if err != nil {
 		log.Fatal(err)
 	}
